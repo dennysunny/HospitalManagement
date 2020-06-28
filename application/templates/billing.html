@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %} Search Patient {% endblock %}
+
+{% block content %} 
+
+<style>
+    input {
+        position: absolute;
+        left: 150px;
+    }
+    
+    select {
+        position: absolute;
+        left: 150px;
+    }
+</style>
+<div class="form">
+    <h1> Search Patient for Billing</h1>
+
+ 
+    <form action="" method="POST">
+        <label for="customer_id">Patient ID</label>
+        <input type="text" name="id" id="id"><br><br>
+        <button class="btn" type="submit">Get Details</button>
+    </form>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p> {{ msg }} </p>
+    {% endfor %}
+{% endif %}
+{% endwith%}
+
+
+<div class="searchform">
+    {% if patient %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>SSN ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>ROOM TYPE</th>
+            <th>ADDRESS</th>
+            <th>STATUS</th>
+            <th>LAST UPDATED</th>
+            <th>NO. OF DAYS</th>
+            <th></th>
+            <th></th>
+            
+        </tr>
+        
+        <tr>
+            <td> {{ patient.id }} </td>
+            <td> {{ patient.ssn_id }} </td>
+            <td> {{ patient.pname }} </td>
+            <td> {{ patient.age }} </td>
+            <td> {{ patient.tbed }} </td>
+            <td> {{ patient.address }}</td>
+            <td> {{ patient.status }} </td>
+            <td> {{ patient.date }} </td>
+            <td>ddd</td>
+            <td> <button type="button"  onclick="window.location='generatebill/{{ patient.tbed }}'"> Generate Bill </button> </td>
+        </tr>
+        
+    </table>
+    
+</div>
+
+    {% else %}
+
+                <h3></h3>
+
+    {% endif %}
+
+{% endblock %}

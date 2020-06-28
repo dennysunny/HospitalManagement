@@ -1,0 +1,33 @@
+<title>Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p> {{ msg }} </p>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+
+<div class="loginwrapper"> 
+    <div class="logincust">
+        <div class="loginheading"><p><b> Administration Staff Login</b></p></div>
+    <div class="logindiv">
+        <form action="" method="post">
+            <tr>
+                <td><label for="uname"><input type="text" name="username" required minlength="5" class="logindecor" placeholder="UserName"></label></td>
+            </tr>
+            <br>
+            <tr>
+                <td><label for="pass"><input type="password" name="password" required minlength="6" class="logindecor" placeholder="Password"></label></td>
+            </tr>
+            <br>
+            <tr>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </form>
+        Don't have account? Click <a href="{{ url_for('registration') }}">here</a> to register.
+    </div>
+    </div>  
+</div>

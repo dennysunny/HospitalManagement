@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %} Withdraw Amount {% endblock %} 
+
+{% block content %} 
+
+<style>
+    input {
+        position: absolute;
+        left: 150px;
+    }
+    
+    select {
+        position: absolute;
+        left: 150px;
+    }
+</style>
+<div class="form">
+    <h1 id="cst_head">Edit Patient </h1>
+    
+    {% for edit in editpat %}
+    <form action="" method="POST">
+        <label for="id">Patient ID:   </label> {{ edit.id }} <br><br>
+        <label for="ssn id">Patient SSN ID: </label> {{ edit.ssn_id }} <br><br>
+        
+        <label for="Name">Old Patient Name:   </label> {{ edit.pname }} <br><br>
+        <label for="New customer Name*">New Patient Name*</label>
+        <input type="text" id="npname" name="npname"><br><br>
+        <label for="Old Address">Old Address:  </label> {{ edit.address }} <br><br>
+        <label for="New Address*">New Address*</label>
+        <input type="text" id="naddress" name="naddress"><br><br>
+        <label for="Old Age">Old Age:  </label> {{ edit.age }} <br><br>
+        <label for="New Age*">New Age*</label>
+        <input type="text" id="nage" name="nage"><br><br>
+        <label for="Old Address">Old Room:  </label> {{ edit.tbed }} <br><br>
+        <label for="Bed">New Room*</label>
+                <select id="tbed" name="tbed">
+                    <option value="GeneralWard">General Ward</option>
+                    <option value="SemiSharing">Semi Sharing</option>
+                    <option value="SingleRoom">Single Room</option>
+                </select><br><br>
+                <label for="Old Address">Old State:  </label> {{ edit.state }} <br><br>       
+        <label for="state">Current State*</label>
+                <select id="nstate" name="nstate">
+                    <option value="Kerala">Kerala</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                </select><br><br>
+        <label for="Old Address">Old City:  </label> {{ edit.city }} <br><br>
+        <label for="City">Current City*</label>
+                <select id="ncity" name="ncity">
+                    <option value="Kochi">Kochi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Chennai">Chennai</option>
+                </select><br><br>
+        <label for="Old Address">Current Patient Status:  </label> {{ edit.status }} <br><br>
+        <label for="status">New Patient Status*</label>
+        <select id="status" name="status">
+            <option value="Active">Active</option>
+            <option value="Discharged">Discharged</option>
+        </select>
+        <pre>(*)Fields are compulsary</pre>
+        <button  type="submit">Update</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

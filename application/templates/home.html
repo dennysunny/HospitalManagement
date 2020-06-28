@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %} ABC HOSPITAL {% endblock %}
+ 
+{% block content %}
+
+<h1 style="color: black;"> Home Page </h1>
+<a href="{{ url_for('create_patient') }}">Create Patient</a>
+<a href="{{ url_for('update_patient') }}">Update Patient</a>
+<a href="{{ url_for('patientscreen') }}"> Active Patients</a>
+<a href="{{ url_for('search_patient') }}"> Search Patients</a>
+<a href="{{ url_for('billing') }}">Patient Billing</a>
+
+{% endblock %}

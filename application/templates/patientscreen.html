@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %} Account Status {% endblock %}
+
+{% block content %}
+
+<div class="status">
+
+    <h1>Active Patients</h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+
+    <table>
+    
+        <tr>
+            <th>ID</th>
+            <th>SSN ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>ROOM TYPE</th>
+            <th>ADDRESS</th>
+            <th>CITY</th>
+            <th>STATE</th>
+            <th>STATUS</th>
+            <th>ADMITTED ON</th>
+            <th>LAST UPDATE</th>
+            <th></th>
+            
+        </tr>
+        {% for update in pts %}
+        <tr>
+            <td> {{ update.id }} </td>
+            <td> {{ update.ssn_id }} </td>
+            <td> {{ update.pname }} </td>
+            <td> {{ update.age }} </td>
+            <td> {{ update.tbed }} </td>
+            <td> {{ update.address }}</td>
+            <td> {{ update.city }} </td>
+            <td> {{ update.state }} </td>
+            <td> {{ update.status }} </td>
+            <td> {{ update.date }} </td>
+            <td> {{ update.ldate }} </td>
+            <td> <button type="button"  onclick="window.location='editpatientdetail/{{ update.id }}'"> Edit Patient </button> </td>
+        </tr>
+        {% else %}
+
+                <h3>No Active Patients!</h3>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('patientscreen') }}">
+    <button type="submit" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}
