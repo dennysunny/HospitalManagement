@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %} Search Patient {% endblock %}
+{% block title %} Bill Patient {% endblock %}
 
 {% block content %} 
 
@@ -46,7 +46,7 @@
             <th>ROOM TYPE</th>
             <th>ADDRESS</th>
             <th>STATUS</th>
-            <th>LAST UPDATED</th>
+            <th>ADMIT DATE</th>
             <th>NO. OF DAYS</th>
             <th></th>
             <th></th>
@@ -61,8 +61,8 @@
             <td> {{ patient.tbed }} </td>
             <td> {{ patient.address }}</td>
             <td> {{ patient.status }} </td>
-            <td> {{ patient.date }} </td>
-            <td>ddd</td>
+            <td> {{ y }} </td>
+            <td> {{delta}} </td>
             <td> <button type="button"  onclick="window.location='generatebill/{{ patient.tbed }}'"> Generate Bill </button> </td>
         </tr>
         

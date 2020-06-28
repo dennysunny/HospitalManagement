@@ -3,7 +3,7 @@ from flask import render_template, request, session, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import sessionmaker, relationship
-from datetime import datetime
+from datetime import datetime, date
 import re
 
 class Userstore(db.Model):
@@ -199,7 +199,7 @@ def editpatientdetail(id):
             status = request.form['status']
             state = request.form['nstate']
             city = request.form['ncity']
-            ldate = datetime.now()
+            ldate = datetime.today()
             row_update = Patients.query.filter_by( id = id ).update(dict(pname=pname, age=age, tbed=tbed, address=address, state=state, city=city, status = status, ldate=ldate))
             db.session.commit()
             print("Roww update", row_update)
@@ -271,6 +271,8 @@ def search_patient():
 
 @app.route('/billing', methods=['GET', 'POST'])
 def billing():
+    #today = datetime.today().strftime('%Y-%m-%d')
+    today = datetime.now()
     if 'username' in session:
         if request.method == 'POST':
             id = request.form['id']
@@ -285,7 +287,14 @@ def billing():
 
                 else:
                     flash('Patient found')
-                    return render_template('billing.html', patient = patient)
+                    x = patient.date
+                    y = x.strftime("%d-%m-%Y, %H:%M:%S")
+                    # z = today.strftime("%d-%m-%Y")
+                    # print("Patient ",y)
+                    # print("today", z)
+                    delta = ( today - x ).days
+                    print(delta)
+                    return render_template('billing.html', patient = patient, delta=delta, y=y)
             
             if id == "":
                 flash('Enter  id to search patient')
