@@ -37,7 +37,7 @@
 
 <div class="searchform">
     {% if patient %}
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>SSN ID</th>
@@ -47,9 +47,8 @@
             <th>ADDRESS</th>
             <th>STATUS</th>
             <th>ADMIT DATE</th>
-            <th>NO. OF DAYS</th>
-            <th></th>
-            <th></th>
+            <th>No. OF DAYS</th>
+            <th>ROOM BILL </th>
             
         </tr>
         
@@ -63,10 +62,15 @@
             <td> {{ patient.status }} </td>
             <td> {{ y }} </td>
             <td> {{delta}} </td>
-            <td> <button type="button"  onclick="window.location='generatebill/{{ patient.tbed }}'"> Generate Bill </button> </td>
+            <td> {{ bill }} </td>
+        </tr>
+
+        <tr>
+            
         </tr>
         
     </table>
+
     
 </div>
 

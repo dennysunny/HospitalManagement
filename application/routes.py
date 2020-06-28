@@ -294,7 +294,23 @@ def billing():
                     # print("today", z)
                     delta = ( today - x ).days
                     print(delta)
-                    return render_template('billing.html', patient = patient, delta=delta, y=y)
+                dy = 0    
+                if delta == 0:
+                    dy = 1
+                else:
+                    dy = delta
+                roomtype = patient.tbed
+                bill = 0
+                print(roomtype)
+                if roomtype == 'SingleRoom':
+                    bill = 8000 * dy
+                elif roomtype == 'SemiSharing':
+                    bill = 4000*dy
+                else:
+                    bill = 2000*dy
+
+                return render_template('billing.html', patient = patient, delta=delta, y=y, bill = bill)
+
             
             if id == "":
                 flash('Enter  id to search patient')
@@ -304,18 +320,6 @@ def billing():
         return redirect( url_for('login') )
     
     return render_template('billing.html')
-
-@app.route('/generatebill/<id>')
-def generatebill(id):
-    if 'username ' in session:
-        bill = 0
-        if id == 'SingleRoom':
-            bill = 8000
-        elif id == 'SemiSharing':
-            bill = 4000
-        else:
-            bill = 2000
-    return id
 
 
 
