@@ -5,38 +5,48 @@
 {% block content %} 
 
 <style>
-    input {
+    /* input {
         position: absolute;
-        top : 140px;
-        left: 150px;
-    }
+      
     
-    select {
-        position: absolute;
-        left: 150px;
-    }
-</style>
-<div >
-    <h1> Search Patient for Billing</h1>
+    
+   
+    } */
+    .text{
+        width: 250px;
+        padding: 10px 5px;
+        border: none;
+        border: solid 1px rgb(31, 21, 21) !important;
+        border-radius: 5px;
+        
 
- 
+
+}
+</style>
+<div style="margin-top: 150px; text-align: center;">
+    <h1 > Search Patient for Billing</h1>
+
+ <div style="margin-left: -10px;">
     <form action="" method="POST">
         <label for="customer_id">Patient ID</label>
-        <input type="text" name="id" id="id"><br><br>
-        <button class="btn" type="submit">Get Details</button>
+&nbsp;&nbsp;        <input class="text" type="text" name="id" id="id"><br><br>
+        <button class="button" type="submit">Get Details</button>
     </form>
+</div>
 </div>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
-    {% for msg in messages %}
-        <p> {{ msg }} </p>
-    {% endfor %}
+    {% for msg in messages %}<br><br>
+    <div style="background-color: #000;">
+        <p style="color: #fff;text-align: center;"> <strong>{{ msg }}</strong> </p>
+    </div>
+        {% endfor %}
 {% endif %}
 {% endwith%}
+<br>
 
-
-<div class="psearchform">
+<div >
     {% if patient %}
     <table border="1">
         <tr>

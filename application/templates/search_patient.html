@@ -2,40 +2,45 @@
 
 {% block title %} Search Patient {% endblock %}
 
+{% block css %}
+<style>
+   .text{
+        width: 250px;
+        padding: 10px 5px;
+        border: none;
+        border: solid 1px rgb(31, 21, 21) !important;
+        border-radius: 5px;
+    } 
+</style>
+{% endblock %}
 {% block content %} 
 
-<style>
-    input {
-        position: absolute;
-        left: 150px;
-    }
-    
-    select {
-        position: absolute;
-        left: 150px;
-    }
-</style>
-<div class="form">
-    <h1> Search Patient </h1>
 
- 
+<div style="margin-top: 150px; text-align: center;">
+    <h1 > Search Patient </h1>
+
+    <div style="margin-left: -10px;">
     <form action="" method="POST">
         <label for="id">Patient ID</label>
-        <input type="text" name="id" id="id"><br><br>
-        <button class="btn" type="submit">Search</button>
+        &nbsp;&nbsp;
+        <input type="text" class="text" name="id" id="id"><br><br>
+        <button class="button" type="submit">Search</button>
     </form>
+    </div>
 </div>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
     {% for msg in messages %}
-        <p> {{ msg }} </p>
+    <div > <br>
+        <p style="color: rgb(248, 11, 11);text-align: center;"> <strong>{{ msg }}</strong> </p>
+    </div>
     {% endfor %}
 {% endif %}
 {% endwith%}
 
-
-<div class="searchform">
+<br>
+<div  >
     {% if patient %}
     <table border="1">
         <tr>
@@ -67,8 +72,8 @@
             <td> {{ patient.status }} </td>
             <td> {{ patient.date }} </td>
             <td> {{ patient.ldate }} </td>
-            <td> <button type="button"  onclick="window.location='editpatientdetail/{{ patient.id }}'"> Edit Patient </button> </td>
-            <td> <button type="button"  onclick="window.location='deletepatientdetail/{{ patient.id }}'"> Delete Patient </button> </td>
+            <td> <button type="button" class="ubutton" onclick="window.location='editpatientdetail/{{ patient.id }}'"> Edit Patient </button> </td>
+            <td> <button type="button"  class="dbutton" onclick="window.location='deletepatientdetail/{{ patient.id }}'"> Delete Patient </button> </td>
         </tr>
         
     </table>

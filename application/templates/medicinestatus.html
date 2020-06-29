@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="status">
+<div class="stat">
 
     <h1>Medicine Status</h1><br>
 
@@ -16,7 +16,7 @@
         {% endif %}
     {% endwith%}
 
-    <table border="1">
+    <table border="1" align="center">
         <tr>
             <th>ID</th>
             <th>NAME</th>
@@ -32,8 +32,8 @@
             <td> {{ update.mname }} </td>
             <td> {{ update.qavailable }} </td>
             <td> {{ update.rate }} </td>
-            <td> <button type="button"  onclick="window.location='editmedicinedetail/{{ update.mid }}'"> Edit Medicine </button> </td>
-            <td> <button type="button"  onclick="window.location='deletemedicinedetail/{{ update.mid }}'"> Delete Medicine </button> </td>
+            <td> <button type="button" class="ubutton" onclick="window.location='editmedicinedetail/{{ update.mid }}'"> Edit Medicine </button> </td>
+            <td> <button type="button" class="dbutton" onclick="window.location='deletemedicinedetail/{{ update.mid }}'"> Delete Medicine </button> </td>
         </tr>
         {% else %}
 
@@ -43,7 +43,7 @@
     <br>
 
     <form action="{{ url_for('medicinestatus') }}">
-    <button type="submit" value="Refresh the list">Refresh Status</button>
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
     </form>
     
 </div>

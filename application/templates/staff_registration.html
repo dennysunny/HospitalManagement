@@ -2,32 +2,26 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
+<style>
+   
+</style>
+
+
+<div class="regwrapper">
+
+    <div class="registerheading"><p><b>Hospital Staff Registration</b></p></div> </br>
+    <div class="form">
+    <form action="" method="POST">
+        <label for="uname">Username</label>
+        <input class="text" type="text" name="uname" required minlength="5"><br><br>
+        <label  for="pass">Password</label>
+        <input  class="text" type="password" name="pass" required minlength="6"><br><br>
+        <label for="cpass">Confirm Password</label>
+        <input  class="text" type="password" name="cpass" required minlength="6"><br><br>
+        <input class="bt" type="submit" value="Register">
+    </form>
+</div>
 {% with messages = get_flashed_messages() %} {% if messages %} {% for msg in messages %}
 <p class="messages"> {{ msg }} </p>
 {% endfor %} {% endif %} {% endwith%}
-<style>
-    input {
-        position: absolute;
-        left: 150px;
-    }
-    
-    select {
-        position: absolute;
-        left: 150px;
-    }
-</style>
-<div class="regwrapper">
-<div class="form">
-    <div class="registerheading"><p><b>Hospital Staff Registration</b></p></div> </br>
-
-    <form action="" method="POST">
-        <label for="uname">Username</label>
-        <input type="text" name="uname" required minlength="5"><br><br>
-        <label for="pass">Password</label>
-        <input type="password" name="pass" required minlength="6"><br><br>
-        <label for="cpass">Confirm Password</label>
-        <input type="password" name="cpass" required minlength="6"><br><br>
-        <input type="submit" value="Register">
-    </form>
-</div>
 </div>

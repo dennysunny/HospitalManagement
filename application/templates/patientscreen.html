@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="status">
+<div class="astatus">
 
     <h1>Active Patients</h1><br>
 
@@ -47,7 +47,7 @@
             <td> {{ update.status }} </td>
             <td> {{ update.date }} </td>
             <td> {{ update.ldate }} </td>
-            <td> <button type="button"  onclick="window.location='editpatientdetail/{{ update.id }}'"> Edit Patient </button> </td>
+            <td> <button type="button" class="ubutton" onclick="window.location='editpatientdetail/{{ update.id }}'"> Edit Patient </button> </td>
         </tr>
         {% else %}
 
@@ -57,7 +57,7 @@
     <br>
 
     <form action="{{ url_for('patientscreen') }}">
-    <button type="submit" value="Refresh the list">Refresh Status</button>
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
     </form>
 </div>
 

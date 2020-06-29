@@ -261,7 +261,7 @@ def search_patient():
                     flash('No Patients with  this ID exists')
                     return redirect( url_for('search_patient') )
                 else:
-                    flash('Patient found”')
+                    flash('Patient Found')
                     return render_template('search_patient.html', patient = patient)
             
             if id == "":
@@ -290,7 +290,7 @@ def billing():
                     flash('No Active Patients')
 
                 else:
-                    flash('Patient found')
+                    flash('Patient Found')
                     x = patient.date
                     y = x.strftime("%d-%m-%Y, %H:%M:%S")
                     # z = today.strftime("%d-%m-%Y")
@@ -367,7 +367,7 @@ def PharmacistPatientDetails():
                     flash('No Patients with that this ID exists')
                     return redirect( url_for('PharmacistPatientDetails') )
                 else:
-                    flash('Patient found”')
+                    flash('Patient Found')
 
                 med = Medicines.query.filter_by(pid = id).all()
                 print("Meddd", med)

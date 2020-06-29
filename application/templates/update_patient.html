@@ -46,15 +46,15 @@
             <td> {{ update.status }} </td>
             <td> {{ update.date }} </td>
             <td> {{ update.ldate }} </td>
-            <td> <button type="button"  onclick="window.location='editpatientdetail/{{ update.id }}'"> Edit Patient </button> </td>
-            <td> <button type="button"  onclick="window.location='deletepatientdetail/{{ update.id }}'"> Delete Patient </button> </td>
+            <td> <button type="button" class="ubutton" onclick="window.location='editpatientdetail/{{ update.id }}'"> Edit Patient </button> </td>
+            <td> <button type="button" class="dbutton" onclick="window.location='deletepatientdetail/{{ update.id }}'"> Delete Patient </button> </td>
         </tr>
         {% endfor %}
     </table>
     <br>
 
     <form action="{{ url_for('update_patient') }}">
-    <button type="submit" value="Refresh the list">Refresh Status</button>
+    <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
     </form>
 </div>
 

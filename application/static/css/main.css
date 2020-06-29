@@ -24,20 +24,21 @@ body {
     color: rgb(7, 162, 252);
     display: inline-flex;
     position: absolute;
-    left: 232px;
+    left: 131px;
 }
 
 .navbar {
     overflow: hidden;
-    background-color: rgb(11, 180, 247);
+    background-color: rgb(0, 174, 255);
 }
 
 .navbar a {
     float: left;
     font-size: 16px;
     color: black;
+    font-weight: bolder;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 36px;
     text-decoration: none;
 }
 
@@ -48,6 +49,7 @@ body {
 
 .dropdown .dropbtn {
     font-size: 16px;
+    font-weight: bolder;
     border: none;
     outline: none;
     color: black;
@@ -59,7 +61,7 @@ body {
 
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-    background-color: rgb(255, 254, 254);
+    background-color: rgb(1, 94, 216);
 }
 
 .dropdown-content {
@@ -81,7 +83,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: rgb(96, 158, 238);
 }
 
 .dropdown:hover .dropdown-content {
@@ -89,9 +91,9 @@ body {
 }
 
 .links {
-    width: 910px;
+    width: 1510px;
     position: absolute;
-    left: 231px;
+    left: 131px;
     top: 70px;
 }
 
@@ -100,17 +102,37 @@ body {
 }
 
 .form {
-    position: absolute;
-    left: 521px;
-    top: 140px;
-    width: 428px;
-    height: 387px;
+  padding: 20px 0;
+  width: auto;
+  margin: auto;
 }
-
+.form label{
+    font-size: 20px !important;
+    margin-top: 10px;
+    
+}
+.form .text{
+    width: 100%;
+    padding: 5px 15px;
+    border: solid 1px #0a0a0a;
+    border-radius: 5px;
+    font-size: 19px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form .bt{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #0077ff;
+    color: aliceblue;
+    margin-top: 10px;
+}
 .searchform {
-    top : 640px;
-    position: absolute;
-    left: 350px;
+    position: relative;
+    padding:30px 0;
 }
 
 .psearchform {
@@ -142,9 +164,29 @@ td {
 .status {
     position: absolute;
     top: 200px;
-    left: 278px;
+    padding-left: 50px;
+}
+.status h1{
+    text-align: center;
 }
 
+.astatus {
+    position: absolute;
+    top: 200px;
+    padding-left: 120px;
+}
+.astatus h1{
+    text-align: center;
+}
+
+.stat {
+    position: absolute;
+    top: 200px;
+    padding-left: 600px;
+}
+.stat h1{
+    text-align: center;
+}
 
 /* delete customer css start*/
 
@@ -289,10 +331,12 @@ span {
     color: white;
     padding-top: 0.5px;
     padding-bottom: 0.5px;
+    text-align: center;
+    font-size: 30px;
 }
 
 .registerheading {
-    text-align: left;
+    text-align: center;
     background-color: black;
     color: white;
     font-size: 32px;
@@ -302,12 +346,10 @@ span {
 
 
 .regwrapper {
-    text-align: center;
-    margin-top: 250px;
-    display: inline-block;
-    border: 1px solid black;
-    padding: 5px;
-    width: 300px;
+    width:50%;
+    margin: auto;
+    margin-top: 10rem;
+    padding: 20px 20px;
 }
 
 .messages {
@@ -317,3 +359,13 @@ span {
     color: red;
     font-size: x-large;
 }
+.button {
+    background-color: #008CBA;; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
