@@ -50,7 +50,6 @@
             <th>ADDRESS</th>
             <th>STATUS</th>
             <th>ADMITTED ON</th>
-            <th></th>
             
         </tr>
         
@@ -63,7 +62,6 @@
             <td> {{ patient.address }}</td>
             <td> {{ patient.status }} </td>
             <td> {{ patient.date }} </td>
-            <td>  </td>
             <td> <button type="button"  onclick="window.location='issuemedicine/{{ patient.id }}'"> Issue Medicines </button> </td>
         </tr>
         
@@ -96,7 +94,7 @@
             <td> {{ med.qissued }} </td>
             <td> {{ med.date }} </td>
             <td> {{ med.rate }}.00 </td>
-            <td> {{ med.qissued * med.rate }} .00 /- </td>
+            <td> {{ med.qissued * med.rate }}.00 /- </td>
         </tr>
         {% else %}
             <h4>No Medicines issued  </h4> 

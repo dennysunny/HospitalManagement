@@ -462,15 +462,24 @@ def issuemedicine(pid):
                 else:
                     flash('Medicine found”')
                     qissued = request.form['qissued']
-                    mid = patient.mid
-                    rate = patient.rate
+                    qid = int(qissued)
+                    print( type(qid) )
+                    print((patient.qavailable) - qid)
+                    if(qid > patient.qavailable):
+                        flash("Selected Medicine Quantity Unavailable")
+                        return render_template('issuemedicine.html', patient = patient)
+                    else:
+                        patient.qavailable = patient.qavailable - qid
+                        db.session.commit()
+                        mid = patient.mid
+                        rate = patient.rate
 
-                    rowup = Medicines( mid = mid, pid=pid, mname = mname, rate = rate , qissued=qissued)
-                    db.session.add(rowup)
-                    db.session.commit()
-                    print("ROWWW", rowup)
+                        rowup = Medicines( mid = mid, pid=pid, mname = mname, rate = rate , qissued=qissued)
+                        db.session.add(rowup)
+                        db.session.commit()
+                        print("ROWWW", rowup)
 
-                    return render_template('issuemedicine.html', patient = patient)
+                        return render_template('issuemedicine.html', patient = patient)
 
            
             
