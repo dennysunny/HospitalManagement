@@ -29,7 +29,7 @@ body {
 
 .navbar {
     overflow: hidden;
-    background-color: rgb(255, 102, 0);
+    background-color: rgb(11, 180, 247);
 }
 
 .navbar a {
@@ -59,7 +59,7 @@ body {
 
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: rgb(255, 254, 254);
 }
 
 .dropdown-content {
@@ -108,11 +108,17 @@ body {
 }
 
 .searchform {
+    top : 640px;
     position: absolute;
-    left: 521px;
-    top: 140px;
-    width: 828px;
-    height: 587px;
+    left: 350px;
+}
+
+.psearchform {
+    position: relative;
+    left: 300px;
+    top : 500px;
+    height: 787px;
+
 }
 
 .btn {
