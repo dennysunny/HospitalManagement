@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %} Search Patient {% endblock %}
+
+{% block content %} 
+
+<style>
+    input {
+        position: absolute;
+        left: 150px;
+    }
+    
+    select {
+        position: absolute;
+        left: 150px;
+    }
+</style>
+<div class="form">
+    <h1> Issue Medicines</h1>
+
+ 
+    <form action="" method="POST">
+        <label for="customer_id">Patient ID</label>
+        <input type="text" name="id" id="id"><br><br>
+        <button class="btn" type="submit">Search</button> <br><br>
+    </form>
+    <form action="{{ url_for('PharmacistPatientDetails') }}">
+        <button type="submit" value="Refresh the list">Reset</button>
+    </form>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p> {{ msg }} </p>
+    {% endfor %}
+{% endif %}
+{% endwith%}
+
+
+<div class="searchform">
+    {% if patient %}
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>SSN ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>ROOM TYPE</th>
+            <th>ADDRESS</th>
+            <th>STATUS</th>
+            <th>ADMITTED ON</th>
+            <th></th>
+            
+        </tr>
+        
+        <tr>
+            <td> {{ patient.id }} </td>
+            <td> {{ patient.ssn_id }} </td>
+            <td> {{ patient.pname }} </td>
+            <td> {{ patient.age }} </td>
+            <td> {{ patient.tbed }} </td>
+            <td> {{ patient.address }}</td>
+            <td> {{ patient.status }} </td>
+            <td> {{ patient.date }} </td>
+            <td>  </td>
+            <td> <button type="button"  onclick="window.location='issuemedicine/{{ patient.id }}'"> Issue Medicines </button> </td>
+        </tr>
+        
+    </table>
+    
+    
+</div>
+
+    {% else %}
+
+                <h3></h3>
+
+    {% endif %}
+
+    
+    <br><br>
+    <table border="1">
+        <tr>
+            <th> ID </th>
+            <th> NAME </th>
+            <th> QUANTITY ISSUED </th>
+            <th>ISSUED DATE</th>
+            <th> RATE </th>
+            <th> AMOUNT </th>
+        </tr>
+        {% for med in med %}
+        <tr>
+            <td> {{ med.mid }} </td>
+            <td> {{ med.mname }} </td>
+            <td> {{ med.qissued }} </td>
+            <td> {{ med.date }} </td>
+            <td> {{ med.rate }}.00 </td>
+            <td> {{ med.qissued * med.rate }} .00 /- </td>
+        </tr>
+        {% else %}
+            <h4>No Medicines issued  </h4> 
+        {% endfor %}
+    </table>
+   
+
+{% endblock %}

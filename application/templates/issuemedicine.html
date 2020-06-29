@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %} Issue Medicine {% endblock %}
+
+{% block content %} 
+
+<style>
+    input {
+        position: absolute;
+        left: 150px;
+    }
+    
+    select {
+        position: absolute;
+        left: 150px;
+    }
+</style>
+<div class="form">
+    <h1> Search Medicine </h1>
+
+ 
+    <form action="" method="POST">
+        <label for="customer_id">Medicine Name</label>
+        <input type="text" name="mname" id="mname"><br><br>
+
+        <label for="qissued">Quantity Required*</label>
+        <input type="number" id="qissued" name="qissued"><br><br>
+
+        <button class="btn" type="submit">Issue</button>
+    </form>
+    
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p> {{ msg }} </p>
+    {% endfor %}
+{% endif %}
+{% endwith%}
+<div>
+{% if patient %}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>QTY AVAILABLE</th>
+        <th>RATE</th>
+        
+    </tr>
+    
+    <tr>
+        <td> {{ patient.mid }} </td>
+        <td> {{ patient.mname }} </td>
+        <td> {{ patient.qavailable }} </td>
+        <td> {{ patient.rate }} </td>
+    </tr>
+</table>
+
+    
+    {% else %}
+
+    <h3>No Medicines!</h3>
+    {% endif %}
+
+</div>
+
+{% endblock %}

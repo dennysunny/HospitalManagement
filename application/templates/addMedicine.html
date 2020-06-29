@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %} Add Medicine {% endblock %}
+
+{% block content %}
+        <style>
+            input {
+                position: absolute;
+                left: 150px;
+            }
+            
+            select {
+                position: absolute;
+                left: 150px;
+            }
+        </style>
+        <div class="form">
+            <h1 id="cst_head">Add Medicine</h1>
+        
+           
+        
+            <form action="" method="POST">
+                <label for="ssn_id">Medicine id*</label>
+                <input type="number" id="mid" name="mid"><br><br>
+                <label for="pname">Medicine Name*</label>
+                <input type="text" id="mname" name="mname"><br><br>
+                <label for="age">Quantity Available*</label>
+                <input type="number" id="qavailable" name="qavailable"><br><br>
+                <label for="age">Rate*</label>
+                <input type="number" id="rate" name="rate"><br><br>
+
+                <pre>(*)Fields are compulsary</pre>
+                <button class="btn" type="submit">Submit</button>
+                <button class="btn" type="reset">Reset</button>
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <h3> {{ msg }} </h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+        
+        </div>
+    {% endblock %}

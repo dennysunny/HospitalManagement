@@ -19,6 +19,7 @@
                     <a href="{{ url_for('search_patient') }}">Search Patients</a>
                 </div>
             </div>
+
             <div class="dropdown">
                 <button class="dropbtn">Billing
                     <i class="fa fa-caret-down"></i>
@@ -27,6 +28,7 @@
                     <a href="{{ url_for('billing') }}">Patient Billing</a>
                 </div>
             </div>
+
             <div class="dropdown">
                 <button class="dropbtn">Status Details
                     <i class="fa fa-caret-down"></i>
@@ -35,6 +37,27 @@
                     <a href="{{ url_for('update_patient') }}">All Patients</a>
                     <a href="{{ url_for('patientscreen') }}"> Active Patients</a>
                     <a href="{{ url_for('search_patient') }}">Search Patients</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Pharmacy
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('PharmacistPatientDetails') }}">Patient Details</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Medicine Store
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('addMedicine') }}">Add Medicine</a>
+                    <a href="{{ url_for('medicinestatus') }}"> Medicine Status</a>
+                    <a href="{{ url_for('medicinestatus') }}">Update Medicine</a>
+                    <a href="{{ url_for('medicinestatus') }}">Delete Medicine</a> 
                 </div>
             </div>
 

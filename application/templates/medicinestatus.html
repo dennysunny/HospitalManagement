@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %} Medicine Status {% endblock %}
+
+{% block content %}
+
+<div class="status">
+
+    <h1>Medicine Status</h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>QTY AVAILABLE</th>
+            <th>RATE</th>
+            <th></th>
+            <th></th>
+            
+        </tr>
+        {% for update in updatep %}
+        <tr>
+            <td> {{ update.mid }} </td>
+            <td> {{ update.mname }} </td>
+            <td> {{ update.qavailable }} </td>
+            <td> {{ update.rate }} </td>
+            <td> <button type="button"  onclick="window.location='editmedicinedetail/{{ update.mid }}'"> Edit Medicine </button> </td>
+            <td> <button type="button"  onclick="window.location='deletemedicinedetail/{{ update.mid }}'"> Delete Medicine </button> </td>
+        </tr>
+        {% else %}
+
+        <h3>No Medicines!</h3>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('medicinestatus') }}">
+    <button type="submit" value="Refresh the list">Refresh Status</button>
+    </form>
+    
+</div>
+
+{% endblock %}

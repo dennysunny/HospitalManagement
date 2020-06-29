@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} Edit Medicine {% endblock %} 
+
+{% block content %} 
+
+<style>
+    input {
+        position: absolute;
+        left: 150px;
+    }
+    
+    select {
+        position: absolute;
+        left: 150px;
+    }
+</style>
+<div class="form">
+    <h1 id="cst_head">Edit Medicine </h1>
+    
+    {% for edit in editpat %}
+    <form action="" method="POST">
+        <label for="id">Medicine ID:   </label> {{ edit.mid }} <br><br>
+        
+        <label for="Name">Old Medicine Name:   </label> {{ edit.mname }} <br><br>
+        <label for="New customer Name*">New Medicine Name*</label>
+        <input type="text" id="mname" name="mname"><br><br>
+
+        <label for="Old Address">Current Quantity:  </label> {{ edit.qavailable }} <br><br>
+        <label for="New Address*">Update Quantity*</label>
+        <input type="text" id="qavailable" name="qavailable"><br><br>
+        
+        <label for="Old Age">Old Rate:  </label> {{ edit.rate }} <br><br>
+        <label for="New Age*">New Rate*</label>
+        <input type="text" id="rate" name="rate"><br><br>
+       
+        <pre>(*)Fields are compulsary</pre>
+        <button  type="submit">Update</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

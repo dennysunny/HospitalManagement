@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %} Patient Status {% endblock %}
+
+{% block content %}
+
+<div class="status">
+
+    <h1>Patients Status</h1><br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith%}
+
+    <table border="1">
+        <tr>
+            <th>PID</th>
+            <th>M ID</th>
+            <th>qiddued</th>
+            
+        </tr>
+        {% for update in updatep %}
+        <tr>
+            <td> {{ update.pid }} </td>
+            <td> {{ update.mid }} </td>
+            <td> {{ update.qissued }} </td>
+        {% endfor %}
+    </table>
+    <br>
+
+    <form action="{{ url_for('update_patient') }}">
+    <button type="submit" value="Refresh the list">Refresh Status</button>
+    </form>
+</div>
+
+{% endblock %}
