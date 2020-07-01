@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %} Add Diagnostics {% endblock %}
+
+{% block content %}
+        <style>
+            /* input {
+                position: absolute;
+                left: 150px;
+            }
+            
+            select {
+                position: absolute;
+                left: 150px;
+            } */
+        </style>
+        <div class="form1">
+            <h1 style="text-align: center; color: rgb(23, 5, 187);">Add Diagnostics Test</h1>
+        
+             
+            <form action="" method="POST">
+                <label for="tid">Test id*</label>
+                <input type="number" class="text1" id="tid" name="tid" required><br><br>
+                <label for="pname">Test Name*</label>
+                <input type="text" class="text1" id="tname" name="tname"  required><br><br>
+                <label for="age">Test Rate*</label>
+                <input type="number" class="text1" id="tcharge" name="tcharge" min="0" required><br><br>
+
+                <pre>(*)Fields are compulsary</pre>
+                <button class="button" type="submit">Add Test</button>
+                <button class="rbutton" type="reset">Reset</button>
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <h3 style="color: red;"> {{ msg }} </h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+        
+        </div>
+    {% endblock %}

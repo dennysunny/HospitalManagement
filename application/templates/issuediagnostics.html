@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %} Issue Test {% endblock %}
+
+{% block content %} 
+
+<style>
+    /* input {
+        position: absolute;
+        left: 150px;
+    }
+    
+    select {
+        position: absolute;
+        left: 150px;
+    } */
+</style>
+<div class="form1">
+    <h1 style="color: rgb(238, 0, 0); "> Search Test </h1>
+
+ 
+    <form action="" method="POST">
+        <label for="customer_id">Test Name</label>
+        <input type="text" class="text1" name="tname" id="tname" required><br><br>
+
+        <button class="ibutton" type="submit">Issue</button>
+    </form>
+    
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p style="font-weight: bolder; font-size: larger; color: red; text-align: center;"> {{ msg }} </p>
+    {% endfor %}
+{% endif %}
+{% endwith%}
+<div>
+{% if patient %}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>RATE</th>
+        
+    </tr>
+    
+    <tr>
+        <td> {{ patient.tid }} </td>
+        <td> {{ patient.tname }} </td>
+        <td> {{ patient.tcharge }} </td>
+    </tr>
+</table>
+
+    
+    {% else %}
+
+    <h3 style="color: red; text-align: center;">No Tests!</h3>
+    {% endif %}
+
+</div>
+
+{% endblock %}

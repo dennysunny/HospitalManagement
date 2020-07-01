@@ -21,7 +21,7 @@
         
             <form action="" method="POST">
                 <label for="ssn_id">SSN ID*</label>
-                <input type="number" class="text1" id="ssn_id" name="ssn_id" required><br>
+                <input type="number" class="text1" id="ssn_id" name="ssn_id" min="9" maxlength="9" required><br>
                 <label for="pname">Name*</label>
                 <input type="text" class="text1" id="pname" name="pname" required><br>
                 <label for="age">Age*</label>
@@ -61,7 +61,7 @@
             {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for msg in messages %}
-                    <h3> {{ msg }} </h3>
+                    <h3 style="color: red;  font-weight: bold; font-size: larger;"> {{ msg }} </h3>
                 {% endfor %}
             {% endif %}
         {% endwith%}

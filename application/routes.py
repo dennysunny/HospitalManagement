@@ -28,7 +28,7 @@ class Patients(db.Model):
     status = db.Column(db.String(20))
 
     # children = relationship("Medicines")
-    children1 = relationship("Diagnostics")
+    # children1 = relationship("Diagnostics")
 
 class Medicines(db.Model):
     __tablename__ = 'medicines'
@@ -51,8 +51,12 @@ class MedicineMaster(db.Model):
 
 class Diagnostics(db.Model):
     __tablename__ = 'diagnostics'
-    pid = Column(Integer, ForeignKey('patients.id'), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer)
+    tname = Column(db.String(20))
     tid = db.Column(db.Integer)
+    tcharge = db.Column(db.Integer)
+    date = db.Column(db.DateTime, default=datetime.now)
 
     children = relationship("DiagnosticsMaster")
 
@@ -561,6 +565,123 @@ def medicines():
         flash('You have been logged out. Please login again')
         return redirect( url_for('login') )
     return render_template('medicines.html')
+
+@app.route('/DiagnosticsPatientDetails', methods=['GET', 'POST'])
+def DiagnosticsPatientDetails():
+    if 'username' in session:
+        if request.method == 'POST':
+            id = request.form['id']
+            
+            if id != "":
+                patient = Patients.query.filter_by( id = id).first()
+                if patient == None:
+                    flash('No Patients with that this ID exists')
+                    return redirect( url_for('DiagnosticsPatientDetails') )
+                else:
+                    flash('Patient Found')
+
+                med = Medicines.query.filter_by(pid = id).all()
+                print("Meddd", med)
+                if med == None:
+                    # nll = med.mid
+                    flash('But No Medicines issued to Patient till Now')
+                    return render_template('DiagnosticsPatientDetails.html', patient = patient)
+                else:
+                    flash(" ")
+
+                dia = Diagnostics.query.filter_by(pid = id).all()
+                if dia == None:
+                    flash('But No Tests issued to Patient till Now')
+                    return render_template('DiagnosticsPatientDetails.html', patient = patient)
+                else:
+                    return render_template('DiagnosticsPatientDetails.html',patient = patient, med = med, dia = dia)
+            
+            if id == "":
+                flash('Enter  id to search')
+                return redirect( url_for('DiagnosticsPatientDetails') )
+    
+    else:
+        return redirect( url_for('login') )
+    
+    return render_template('DiagnosticsPatientDetails.html')
+
+@app.route('/addDiagnostics', methods=['GET', 'POST'] )
+def addDiagnostics():
+    if 'username' in session:                
+        if request.method == 'POST':           
+            tid = request.form['tid']
+            tname = request.form['tname']      
+            tcharge = request.form['tcharge']
+
+            pat = DiagnosticsMaster.query.filter_by( tid = tid ).first()
+
+            if pat == None:
+                diag = DiagnosticsMaster(tid=tid, tname=tname, tcharge=tcharge)
+                db.session.add(diag)
+                db.session.commit()
+                flash('Test successfully Added to Database')
+                return redirect( url_for('addDiagnostics') )
+            
+            else:
+                flash('Test with this  ID already exists')
+                return redirect( url_for('addDiagnostics') )
+    else:
+        flash('You are logged out. Please login again to continue')
+        return redirect( url_for('login') )
+
+    return render_template('addDiagnostics.html')
+
+@app.route('/diagnosticsstatus')
+def diagnosticsstatus():
+    if 'username' in session:
+        usern = session['username']
+        print(usern)
+        updatep = DiagnosticsMaster.query.all()
+        print(updatep)
+        if not updatep:
+            flash('No Tests Available')
+            return redirect( url_for('addDiagnostics') )
+        else:
+            print("inside else")
+            return render_template('diagnosticsstatus.html', updatep = updatep)
+
+    else:
+        flash('You have been logged out. Please login again')
+        return redirect( url_for('login') )
+    return render_template('diagnosticsstatus.html')
+
+@app.route('/issuediagnostics/<pid>', methods=['GET', 'POST'])
+def issuediagnostics(pid):
+    if 'username' in session:
+        if request.method == 'POST':
+            tname = request.form['tname']
+            
+            if tname != "":
+                patient = DiagnosticsMaster.query.filter_by( tname = tname).first()
+                if patient == None:
+                    flash('No Test with this Name exists')
+                    return render_template('issuediagnostics.html')
+                else:
+                    flash('Test Found')
+                    tid = patient.tid
+                    tcharge = patient.tcharge
+                    rowup = Diagnostics( tid = tid, pid=pid, tname = tname, tcharge = tcharge )
+                    db.session.add(rowup)
+                    db.session.commit()
+                    print("ROWWW", rowup)
+
+                    return render_template('issuediagnostics.html', patient = patient)
+      
+            if tname == "":
+                flash('Enter  Test Name to Search')
+                return render_template('issuediagnostics.html')
+    
+    else:
+        return redirect( url_for('login') )
+    
+    return render_template('issuediagnostics.html')
+
+
 
 @app.route('/logout')
 def logout():
