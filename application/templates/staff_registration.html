@@ -10,18 +10,21 @@
 <div class="regwrapper">
 
     <div class="registerheading"><p><b>Hospital Staff Registration</b></p></div> </br>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for msg in messages %}
+        <p class="messages"> {{ msg }} </p>
+    {% endfor %} {% endif %} {% endwith%}
+
     <div class="form">
     <form action="" method="POST">
-        <label for="uname">Username</label>
+        <label for="uname" style="color: rgb(78, 78, 235); font-weight: bold;">Username</label>
         <input class="text" type="text" name="uname" required minlength="5"><br><br>
-        <label  for="pass">Password</label>
+        <label  for="pass" style="color: rgb(78, 78, 235); font-weight: bold;">Password</label>
         <input  class="text" type="password" name="pass" required minlength="6"><br><br>
-        <label for="cpass">Confirm Password</label>
+        <label for="cpass" style="color: rgb(78, 78, 235); font-weight: bold;">Confirm Password</label>
         <input  class="text" type="password" name="cpass" required minlength="6"><br><br>
         <input class="bt" type="submit" value="Register">
     </form>
+    <strong style="color: green;">Already have an Account?  Click <a href="{{ url_for('login') }}">here</a> to Login.</strong>
 </div>
-{% with messages = get_flashed_messages() %} {% if messages %} {% for msg in messages %}
-<p class="messages"> {{ msg }} </p>
-{% endfor %} {% endif %} {% endwith%}
+
 </div>

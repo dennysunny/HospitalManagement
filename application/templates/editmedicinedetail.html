@@ -5,7 +5,7 @@
 {% block content %} 
 
 <style>
-    input {
+    /* input {
         position: absolute;
         left: 150px;
     }
@@ -13,9 +13,9 @@
     select {
         position: absolute;
         left: 150px;
-    }
+    } */
 </style>
-<div class="form">
+<div class="form1">
     <h1 id="cst_head">Edit Medicine </h1>
     
     {% for edit in editpat %}
@@ -24,15 +24,15 @@
         
         <label for="Name">Old Medicine Name:   </label> {{ edit.mname }} <br><br>
         <label for="New customer Name*">New Medicine Name*</label>
-        <input type="text" id="mname" name="mname"><br><br>
+        <input type="text" class="text1" id="mname" name="mname" required><br><br>
 
         <label for="Old Address">Current Quantity:  </label> {{ edit.qavailable }} <br><br>
         <label for="New Address*">Update Quantity*</label>
-        <input type="text" id="qavailable" name="qavailable"><br><br>
+        <input type="number" class="text1" id="qavailable" min="1" name="qavailable" required><br><br>
         
         <label for="Old Age">Old Rate:  </label> {{ edit.rate }} <br><br>
         <label for="New Age*">New Rate*</label>
-        <input type="text" id="rate" name="rate"><br><br>
+        <input type="number" class="text1" id="rate" name="rate" min="1" required><br><br>
        
         <pre>(*)Fields are compulsary</pre>
         <button  type="submit" class="ubutton">Update</button>

@@ -1,18 +1,91 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html>
 
-{% block title %} ABC HOSPITAL {% endblock %}
- 
-{% block content %}
-<br><br>
-<h1 style="color: black;"> Home Page </h1>
-<a href="{{ url_for('create_patient') }}">Create Patient</a>
-<a href="{{ url_for('update_patient') }}">Update Patient</a>
-<a href="{{ url_for('patientscreen') }}"> Active Patients</a>
-<a href="{{ url_for('search_patient') }}"> Search Patients</a>
-<a href="{{ url_for('billing') }}">Patient Billing</a>
-<a href="{{ url_for('PharmacistPatientDetails') }}">PharmacistPatientDetails </a>
-<a href="{{ url_for('addMedicine') }}">Add Medicine </a>
-<a href="{{ url_for('medicinestatus') }}">Medicine Status </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+<style>
 
+</style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% block css %}
 
 {% endblock %}
+</head>
+
+<body >
+    {% include "includes/header.html" %} 
+     
+        {% block content %} {% endblock %} 
+        <div class="body1">
+            <h1 style="color: rgb(252, 252, 252); font-size: 120px; margin-top: 200px; margin-left: 2px;">Welcome To <br> BioNeuCare</h1>
+        </div> 
+        <div class="container1">
+            <img src="../static/images/1st.jpg" style ="width:100%" >
+            <div class="top-right">Comprehensive, Quality & <br> Compassionate Mental Care Treatments.</div>
+        </div>
+        <div class="container1">
+            <img src="../static/images/care.jpg" style ="width:100%" >
+            <div class="top-left">Implying Latest Technology, <br> Well Equipped, with Hygiene Care for Patients.</div>
+        </div>
+        
+        <div style="background-color: black;">
+            <div class="space-around" >
+                <div  class="footercontent1">
+                    <div>
+                        <p class="foot_word_edit"><b> About Us</b></p>
+                        
+                        <div class="footcontentinfo"><span>We provide mental health care based on state-of-the-art technology and expertise at a cost ensuring value for money.
+                        <br> Also a delightful ambience and excellent comprehensive care with a human touch, by integrated team work and quality systems with monitoring and feed back.</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="footercontent2">
+                    <div>
+                        <p class="foot_word_edit"><b>Our Services</b></p>
+                    <div class="footcontentinfo"><span>Emergency Services <br> Wards <br>
+                        Dementia Clinic <br> De-addiction Center <br> Neuropsychiatry
+                    </span>
+                    </div>
+                    </div>
+                </div>
+                <div class="footercontent3">
+                    <div>
+                        <p class="foot_word_edit"><b>Contact Us</b></p>
+                        <div class="footcontentinfo"><span>Email : customer.service@bioneucare.com</span>
+                            <span>Contact No : 1234567890</span>
+                            <span>Address : 3rd floor XYZ Complex , MC Road</span>
+                            <span>Thuruthy P.O Kottayam Kerala</span>
+                            <span>Zip : 686535</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div>
+            <div class="space-between endfooter">
+                <div>
+                    <span class="lastfooter">Copyright © All rights reserved by</span>
+                    <span class="foot_word_edit lastfooter"><b>BioNeuCare Hospital</b></span>
+                </div>
+                <div>
+                    <span class="foot_word_edit lastfooter "><b>Connect Us</b></span>
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    <i class="fa fa-sitemap" aria-hidden="true"></i>
+    
+    
+                </div>
+            </div>
+        </div>
+        
+    
+    <!-- {% include "includes/footer.html" %} -->
+</body>
+
+</html>

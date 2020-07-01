@@ -6,12 +6,12 @@
 
 <div class="astatus">
 
-    <h1 style="color: rgb(228, 1, 1);" > Patients </h1><br>
+    <h1 style="color: rgb(228, 1, 1);" >Delete Patients </h1><br>
 
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for msg in messages %}
-                <p style="font-weight: bolder; color: red; font-size: larger;"> {{ msg }} </p>
+                <p> {{ msg }} </p>
             {% endfor %}
         {% endif %}
     {% endwith%}
@@ -45,13 +45,13 @@
             <td> {{ update.status }} </td>
             <td> {{ update.date }} </td>
             <td> {{ update.ldate }} </td>
-            <td> <button type="button" class="ubutton" onclick="window.location='editpatientdetail/{{ update.id }}'"> Edit Patient </button> </td>
+            <td> <button type="button" class="dbutton" onclick="window.location='deletepatientdetail/{{ update.id }}'"> Delete Patient </button> </td>
         </tr>
         {% endfor %}
     </table>
     <br>
 
-    <form action="{{ url_for('update_patient') }}">
+    <form action="{{ url_for('deletepat') }}">
     <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
     </form>
 </div>

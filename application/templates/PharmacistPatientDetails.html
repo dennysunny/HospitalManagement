@@ -12,7 +12,7 @@
         width: 250px;
         padding: 10px 5px;
         border: none;
-        border: solid 1px rgb(31, 21, 21) !important;
+        border: solid 2px rgb(31, 21, 21) !important;
         border-radius: 5px;
     }
   </style>
@@ -21,11 +21,11 @@
 
 <div class="container">
 <div >
-    <h1> Issue Medicines</h1>
+    <h1 style="color: rgb(221, 28, 28);"> Issue Medicines</h1>
 
  
     <form action="" method="POST">
-        <label for="id">Patient ID</label> &nbsp;&nbsp;
+        <label for="id" style="font-weight: bold; font-size: larger; color: rgb(4, 4, 136);">Patient ID</label> &nbsp;&nbsp;
         <input type="text" class = "text" name="id" id="id"><br><br>
         <button class="button" type="submit">Search</button> <br><br>
     </form>
@@ -70,7 +70,11 @@
             <td> {{ patient.address }}</td>
             <td> {{ patient.status }} </td>
             <td> {{ patient.date }} </td>
+            {% if patient.status == 'Active' %}
             <td> <button type="button" class="ibutton"  onclick="window.location='issuemedicine/{{ patient.id }}'"> Issue Medicines </button> </td>
+            {% else %}
+            <td> Patient Discharged </td>
+            {% endif %}
         </tr>
         
     </table>

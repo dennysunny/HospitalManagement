@@ -20,12 +20,57 @@ body {
     flex-direction: column;
 }
 
+
 #logo {
     color: rgb(7, 162, 252);
     display: inline-flex;
     position: absolute;
     left: 131px;
 }
+
+.body1 {
+    background-image: url("../images/090716_stjoes.jpg");
+    background-repeat: no-repeat;
+    background-position: 0px 100px 0px 100px;
+    background-size: 100% ;
+    scroll-behavior: auto;
+}
+
+/* .body2 {
+    background-image: url("../images/1st.jpg");
+    background-repeat: no-repeat;
+    background-position: 0px 100px 0px 100px;
+    background-size: 100%;
+    scroll-behavior: auto;
+} */
+
+
+.container1 {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+.top-right {
+    position: absolute;
+    color: #89adb9;
+    text-align: right;
+    font-size: 90px;
+    font-weight: bold;
+    top: 400px;
+    right: 16px;
+  }
+
+  .top-left {
+    position: absolute;
+    color: #6a9bac;
+    text-align: left;
+    font-size: 90px;
+    font-weight: bold;
+    top: 525px;
+    left: 16px;
+  }
+
 
 .navbar {
     overflow: hidden;
@@ -114,6 +159,15 @@ body {
 .form .text{
     width: 100%;
     padding: 5px 15px;
+    border: solid 2px #0051ff;
+    border-radius: 5px;
+    font-size: 19px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form .text1{
+    width: 100%;
+    padding: 5px 10px;
     border: solid 1px #0a0a0a;
     border-radius: 5px;
     font-size: 19px;
@@ -143,6 +197,28 @@ body {
 
 }
 
+.form1 {
+    padding: 100px 0;
+    width: auto;
+    margin: auto;
+  }
+  .form1 label{
+      font-size: 18px !important;
+      margin-top: 10px;
+      color: #2d268d;
+      font-weight: bold;
+      
+  }
+  .form1 .text1{
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 2px #248df0;
+    border-radius: 5px;
+    font-size: 19px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .btn {
     background-color: black;
     height: 33px;
@@ -151,7 +227,8 @@ body {
 }
 
 pre {
-    color: red
+    color: red;
+    font-weight: bold;
 }
 
 table,
@@ -261,13 +338,14 @@ td {
 }
 
 .foot_word_edit {
-    color: yellow;
-    font-size: large;
+    color: rgb(229, 237, 241);
+    font-size: larger;
 }
 
 span {
     display: block;
-    font-size: small;
+    font-size: medium;
+    text-transform: capitalize;
 }
 
 .lastfooter {
@@ -292,10 +370,11 @@ span {
 
 .footcontentinfo {
     text-align: start;
+    color: #a8d8eb;
 }
 
 .endfooter {
-    background-color: rgb(31, 29, 29);
+    background-color: rgb(50, 145, 233);
 }
 
 
@@ -327,8 +406,8 @@ span {
 
 .loginheading {
     text-align: left;
-    background-color: black;
-    color: white;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding-top: 0.5px;
     padding-bottom: 0.5px;
     text-align: center;
@@ -354,10 +433,10 @@ span {
 
 .messages {
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
     color: red;
-    font-size: x-large;
+    font-size: larger;
 }
 .button {
     background-color: #008CBA;; /* Green */

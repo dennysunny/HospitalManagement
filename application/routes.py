@@ -185,6 +185,27 @@ def update_patient():
         return redirect( url_for('login') )
     return render_template('update_patient.html')
 
+@app.route('/deletepat')
+def deletepat():
+    if 'username' in session:
+        usern = session['username']
+        print(usern)
+        updatep = Patients.query.all()
+
+
+        if not updatep:
+            flash('No patients exists in database')
+            return redirect( url_for('create_patient') )
+        else:
+            print("inside else")
+            return render_template('deletepat.html', updatep = updatep)
+
+    else:
+        flash('You have been logged out. Please login again')
+        return redirect( url_for('login') )
+    return render_template('deletepat.html')
+
+
 @app.route('/editpatientdetail/<id>', methods=['GET', 'POST'])
 def editpatientdetail(id):
     print("id is : ", id)
@@ -287,7 +308,7 @@ def billing():
                     flash('No Patients with that this ID exists')
                     return redirect( url_for('billing') )
                 elif patient.status != 'Active':
-                    flash('No Active Patients')
+                    flash('No Active Patients with Entered ID')
 
                 else:
                     flash('Patient Found')
@@ -406,6 +427,44 @@ def medicinestatus():
         return redirect( url_for('login') )
     return render_template('medicinestatus.html')
 
+@app.route('/updatemed')
+def updatemed():
+    if 'username' in session:
+        usern = session['username']
+        print(usern)
+        updatep = MedicineMaster.query.all()
+        print(updatep)
+        if not updatep:
+            flash('No Medicines exists in database')
+            return redirect( url_for('addMedicine') )
+        else:
+            print("inside else")
+            return render_template('updatemed.html', updatep = updatep)
+
+    else:
+        flash('You have been logged out. Please login again')
+        return redirect( url_for('login') )
+    return render_template('updatemed.html')
+
+@app.route('/deletemed')
+def deletemed():
+    if 'username' in session:
+        usern = session['username']
+        print(usern)
+        updatep = MedicineMaster.query.all()
+        print(updatep)
+        if not updatep:
+            flash('No Medicines exists in database')
+            return redirect( url_for('addMedicine') )
+        else:
+            print("inside else")
+            return render_template('deletemed.html', updatep = updatep)
+
+    else:
+        flash('You have been logged out. Please login again')
+        return redirect( url_for('login') )
+    return render_template('deletemed.html')
+
 @app.route('/editmedicinedetail/<mid>', methods=['GET', 'POST'] )
 def editmedicinedetail(mid):
     print("id is : ", mid)
@@ -460,13 +519,13 @@ def issuemedicine(pid):
                     flash('No Medicine with this Name exists')
                     return render_template('issuemedicine.html')
                 else:
-                    flash('Medicine found”')
+                    flash('Medicine found')
                     qissued = request.form['qissued']
                     qid = int(qissued)
                     print( type(qid) )
                     print((patient.qavailable) - qid)
                     if(qid > patient.qavailable):
-                        flash("Selected Medicine Quantity Unavailable")
+                        flash("Entered Medicine Quantity Unavailable")
                         return render_template('issuemedicine.html', patient = patient)
                     else:
                         patient.qavailable = patient.qavailable - qid

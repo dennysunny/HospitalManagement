@@ -4,7 +4,7 @@
 
 {% block content %}
         <style>
-            input {
+            /* input {
                 position: absolute;
                 left: 150px;
             }
@@ -12,49 +12,49 @@
             select {
                 position: absolute;
                 left: 150px;
-            }
+            } */
         </style>
-        <div class="form">
-            <h1 id="cst_head">Create Patient</h1>
+        <div class="form1">
+            <h1 style="color:#032583">Create Patient</h1>
         
            
         
             <form action="" method="POST">
-                <label for="ssn_id">Patient SSN id*</label>
-                <input type="number" id="ssn_id" name="ssn_id"><br><br>
-                <label for="pname">Patient Name*</label>
-                <input type="text" id="pname" name="pname"><br><br>
+                <label for="ssn_id">SSN ID*</label>
+                <input type="number" class="text1" id="ssn_id" name="ssn_id" required><br>
+                <label for="pname">Name*</label>
+                <input type="text" class="text1" id="pname" name="pname" required><br>
                 <label for="age">Age*</label>
-                <input type="number" id="age" name="age"><br><br>
+                <input type="number" class="text1" id="age" maxlength="2" min="0" name="age" required ><br>
                 <label for="address">Address*</label>
-                <input type="text" id="address" name="address"><br><br>
+                <input type="text" class="text1" id="address" name="address" required><br>
                 <label for="Bed">Bed Type*</label>
-                <select id="tbed" name="tbed">
+                <select id="tbed" class="text1" name="tbed">
                     <option value="GeneralWard">General Ward</option>
                     <option value="SemiSharing">Semi Sharing</option>
                     <option value="SingleRoom">Single Room</option>
-                </select><br><br>
+                </select><br>
                 <label for="state">State*</label>
-                <select id="state" name="state">
+                <select id="state" class="text1" name="state">
                     <option value="Kerala">Kerala</option>
                     <option value="Maharashtra">Maharashtra</option>
                     <option value="Karnataka">Karnataka</option>
                     <option value="Tamil Nadu">Tamil Nadu</option>
-                </select><br><br>
+                </select><br>
                 <label for="City">City*</label>
-                <select id="city" name="city">
+                <select id="city" class="text1" name="city">
                     <option value="Kochi">Kochi</option>
                     <option value="Mumbai">Mumbai</option>
                     <option value="Bengaluru">Bengaluru</option>
                     <option value="Chennai">Chennai</option>
-                </select><br><br>
+                </select><br>
                 <label for="status">Patient Status*</label>
-                <select id="status" name="status">
+                <select id="status" class="text1" name="status">
                     <option value="Active">Active</option>
                     <option value="Discharged">Discharged</option>
-                </select><br><br>
+                </select><br>
                 <pre>(*)Fields are compulsary</pre>
-                <button class="button" type="submit">Submit</button>
+                <button class="button" type="submit">Submit</button> &nbsp;
                 <button class="rbutton" type="reset">Reset</button>
             </form>
 

@@ -1,7 +1,7 @@
 <header>
     <div class="heading">
-        <h1 id="logo" style="color: rgb(72, 127, 247); display: inline-flex;">ABC&nbsp;
-            <div style="color: rgb(43, 255, 0); display: inline-flex;">HOSPITAL</div>
+        <h1 id="logo" style="color: rgb(43, 255, 0); display: inline-flex; font-size: 40px;">BioNeu
+            <div style="color: rgb(251, 255, 0); display: inline-flex; font-size: 40px;">Care </div>
         </h1>
     </div>
     <div class="links">
@@ -15,7 +15,7 @@
                 <div class="dropdown-content">
                     <a href="{{ url_for('create_patient') }}">Create Patient</a>
                     <a href="{{ url_for('update_patient') }}">Update Patient</a>
-                    <a href="{{ url_for('update_patient') }}">Delete Patient</a>
+                    <a href="{{ url_for('deletepat') }}">Delete Patient</a>
                     <a href="{{ url_for('search_patient') }}">Search Patients</a>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ url_for('PharmacistPatientDetails') }}">Patient Details</a>
+                    <a href="{{ url_for('PharmacistPatientDetails') }}">Issue Medicines</a>
                 </div>
             </div>
 
@@ -57,8 +57,8 @@
                 <div class="dropdown-content">
                     <a href="{{ url_for('addMedicine') }}">Add Medicine</a>
                     <a href="{{ url_for('medicinestatus') }}"> Medicine Status</a>
-                    <a href="{{ url_for('medicinestatus') }}">Update Medicine</a>
-                    <a href="{{ url_for('medicinestatus') }}">Delete Medicine</a> 
+                    <a href="{{ url_for('updatemed') }}">Update Medicine</a>
+                    <a href="{{ url_for('deletemed') }}">Delete Medicine</a> 
                 </div>
             </div>
 

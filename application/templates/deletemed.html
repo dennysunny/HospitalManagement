@@ -6,7 +6,7 @@
 
 <div class="stat">
 
-    <h1 style="color: red;">Medicine Status</h1><br>
+    <h1 style="color: red;"> Delete Medicine </h1><br>
 
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -22,6 +22,7 @@
             <th>NAME</th>
             <th>QTY AVAILABLE</th>
             <th>PRICE</th>
+            <th></th>
             
         </tr>
         {% for update in updatep %}
@@ -30,6 +31,7 @@
             <td> {{ update.mname }} </td>
             <td> {{ update.qavailable }} </td>
             <td> {{ update.rate }} </td>
+            <td> <button type="button" class="dbutton" onclick="window.location='deletemedicinedetail/{{ update.mid }}'"> Delete Medicine </button> </td>
         </tr>
         {% else %}
 

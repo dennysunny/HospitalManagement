@@ -5,7 +5,7 @@
 {% block content %} 
 
 <style>
-    input {
+    /* input {
         position: absolute;
         left: 150px;
     }
@@ -13,18 +13,18 @@
     select {
         position: absolute;
         left: 150px;
-    }
+    } */
 </style>
-<div class="form">
-    <h1> Search Medicine </h1>
+<div class="form1">
+    <h1 style="color: rgb(238, 0, 0); "> Search Medicine </h1>
 
  
     <form action="" method="POST">
         <label for="customer_id">Medicine Name</label>
-        <input type="text" name="mname" id="mname" required><br><br>
+        <input type="text" class="text1" name="mname" id="mname" required><br><br>
 
         <label for="qissued">Quantity Required*</label>
-        <input type="number" id="qissued" name="qissued"><br><br>
+        <input type="number" class="text1" id="qissued" name="qissued" min="0" required><br><br>
 
         <button class="ibutton" type="submit">Issue</button>
     </form>
@@ -34,7 +34,7 @@
 {% with messages = get_flashed_messages() %}
 {% if messages %}
     {% for msg in messages %}
-        <p> {{ msg }} </p>
+        <p style="font-weight: bolder; font-size: larger; color: red; text-align: center;"> {{ msg }} </p>
     {% endfor %}
 {% endif %}
 {% endwith%}
@@ -60,7 +60,7 @@
     
     {% else %}
 
-    <h3>No Medicines!</h3>
+    <h3 style="color: red; text-align: center;">No Medicines!</h3>
     {% endif %}
 
 </div>

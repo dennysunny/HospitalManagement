@@ -16,7 +16,7 @@
         width: 250px;
         padding: 10px 5px;
         border: none;
-        border: solid 1px rgb(31, 21, 21) !important;
+        border: solid 2px rgb(31, 21, 21) !important;
         border-radius: 5px;
         
 
@@ -24,11 +24,11 @@
 }
 </style>
 <div style="margin-top: 150px; text-align: center;">
-    <h1 > Search Patient for Billing</h1>
+    <h1 style="color: rgb(7, 7, 141);"> Search Patient for Billing</h1>
 
  <div style="margin-left: -10px;">
     <form action="" method="POST">
-        <label for="customer_id">Patient ID</label>
+        <label for="customer_id" style="font-weight: bold; font-size: large; color: red;">Patient ID</label>
 &nbsp;&nbsp;        <input class="text" type="text" name="id" id="id"><br><br>
         <button class="button" type="submit">Get Details</button>
     </form>
@@ -37,10 +37,8 @@
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
-    {% for msg in messages %}<br><br>
-    <div style="background-color: #000;">
-        <p style="color: #fff;text-align: center;"> <strong>{{ msg }}</strong> </p>
-    </div>
+    {% for msg in messages %}<br>
+        <p style="color: rgb(255, 5, 5);text-align: center; font-weight: bolder;"> <strong>{{ msg }}</strong> </p>
         {% endfor %}
 {% endif %}
 {% endwith%}
