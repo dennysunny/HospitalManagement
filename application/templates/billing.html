@@ -30,7 +30,7 @@
     <form action="" method="POST">
         <label for="customer_id" style="font-weight: bold; font-size: large; color: red;">Patient ID</label>
 &nbsp;&nbsp;        <input class="text" type="text" name="id" id="id"><br><br>
-        <button class="button" type="submit">Get Details</button>
+        <button class="button" type="submit"  >Search </button>
     </form>
 </div>
 </div>
@@ -88,5 +88,84 @@
                 <h3></h3>
 
     {% endif %}
+    
+   <div> 
+        <br><br>
+        {% if med %}
+        <p style="color: rgb(248, 11, 11);text-align: left;"> <strong>Medicines Issued</strong> </p>
+        <table class="table" border="1">
+            <tr>
+                <th> ID </th>
+                <th> NAME </th>
+                <th> QUANTITY ISSUED </th>
+                <th>ISSUED DATE</th>
+                <th> RATE </th>
+                <th> TOTAL </th>
+            </tr>
+            {% for med in med %}
+            <tr>
+                <td> {{ med.mid }} </td>
+                <td> {{ med.mname }} </td>
+                <td> {{ med.qissued }} </td>
+                <td> {{ med.date }} </td>
+                <td> {{ med.rate }}.00 </td>
+                <td> {{ med.qissued * med.rate }}.00 /- </td>
+            </tr>
+            {% else %}
+                <h4>No Medicines issued  </h4> 
+            {% endfor %}
+        </table>
+        {% endif %}
+    
+        <br><br>
+        {% if dia %}
+        <p style="color: rgb(248, 11, 11);text-align: left;"> <strong>Diagnostics Issued</strong> </p>
+        <table class="table" border="1">
+            <tr>
+                <th> ID </th>
+                <th> NAME </th>
+                <th>ISSUED DATE</th>
+                <th> RATE </th>
+            </tr>
+            {% for dia in dia %}
+            <tr>
+                <td> {{ dia.tid }} </td>
+                <td> {{ dia.tname }} </td>
+                <td> {{ dia.date }} </td>
+                <td> {{ dia.tcharge }}.00 </td>
+            </tr>
+            {% else %}
+                <h4>No Tests issued  </h4> 
+            {% endfor %}
+        </table>
+        {% endif %}
+    
+       </div>
+
+       <div>
+           {% if patient %}
+
+           <h1 style="text-align: center; color: rgb(247, 247, 247); background-color: rgb(253, 0, 0);" >TOTAL BILL</h1>
+           <table >
+                <tr>
+                    <th> ROOM TOTAL </th>
+                    <th> MEDICINES TOTAL </th>
+                    <th> DIAGNOSTICS TOTAL </th>
+                    <th> GRAND TOTAL </th>
+                    <th> BILL </th>
+                </tr>
+                <tr>
+                    <td> {{ bill }}/- </td>
+                    <td> {{ mtot }}/- </td>
+                    <td> {{tot}}/- </td>
+                    <td> {{ bill + mtot + tot }}.00/- </td>
+                    <td> <button type="button" class="dbutton" onclick="window.location='generatebill/{{ patient.id }}'"> Generate Bill </button> </td>
+                    
+                </tr>
+           </table>
+           {% endif %}
+       </div>
+
+
 
 {% endblock %}

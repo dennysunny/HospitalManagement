@@ -338,7 +338,22 @@ def billing():
                     else:
                         bill = 2000*dy
 
-                    return render_template('billing.html', patient = patient, delta=delta, y=y, bill = bill)
+                    med = Medicines.query.filter_by(pid = id).all()
+                    if med == None:
+                        flash('But No Medicines issued to Patient till Now')
+                    else:
+                        mtot = 0
+                        for j in med:
+                            mtot += (j.qissued * j.rate)
+
+                    dia = Diagnostics.query.filter_by(pid = id).all()
+                    if dia == None:
+                        flash('But No Tests issued to Patient till Now')
+                    else:
+                        tot = 0
+                        for i in dia:
+                            tot += i.tcharge
+                        return render_template('billing.html', patient = patient, delta=delta, y=y, bill = bill, med = med, dia = dia, mtot = mtot, tot = tot)
 
             
             if id == "":
@@ -680,6 +695,28 @@ def issuediagnostics(pid):
         return redirect( url_for('login') )
     
     return render_template('issuediagnostics.html')
+
+@app.route('/generatebill/<id>')
+def generatebill(id):
+    if 'username' in session:
+        stat = 'Discharged'
+        row_update = Patients.query.filter_by( id = id ).update(dict(status = stat))
+        db.session.commit()
+
+        if row_update == None:
+            flash('Something Went Wrong')
+            return redirect( url_for('billing') )
+        else:
+            flash('Patient Bill Generated successfully')
+            return redirect( url_for('billing') )
+
+    else:
+        flash('You have been logged out. Please login again')
+        return redirect( url_for('login'))
+    return render_template('billing.html')
+
+
+
 
 
 

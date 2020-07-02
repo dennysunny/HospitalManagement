@@ -33,11 +33,14 @@
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">Billing
+                <button class="dropbtn">Medicine Store
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ url_for('billing') }}">Patient Billing</a>
+                    <a href="{{ url_for('addMedicine') }}">Add Medicine</a>
+                    <a href="{{ url_for('medicinestatus') }}"> Medicine Status</a>
+                    <a href="{{ url_for('updatemed') }}">Update Medicine</a>
+                    <a href="{{ url_for('deletemed') }}">Delete Medicine</a> 
                 </div>
             </div>
 
@@ -47,18 +50,6 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="{{ url_for('PharmacistPatientDetails') }}">Issue Medicines</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Medicine Store
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="{{ url_for('addMedicine') }}">Add Medicine</a>
-                    <a href="{{ url_for('medicinestatus') }}"> Medicine Status</a>
-                    <a href="{{ url_for('updatemed') }}">Update Medicine</a>
-                    <a href="{{ url_for('deletemed') }}">Delete Medicine</a> 
                 </div>
             </div>
 
@@ -75,6 +66,14 @@
                 </div>
             </div>
 
+            <div class="dropdown">
+                <button class="dropbtn">Billing
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('billing') }}">Patient Billing</a>
+                </div>
+            </div>
 
             <div class="logout"><a href="{{ url_for('logout') }}">Logout</a></div>
 
