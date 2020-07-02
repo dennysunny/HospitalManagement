@@ -13,7 +13,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ url_for('create_patient') }}">Create Patient</a>
+                    <a href="{{ url_for('create_patient') }}">Register Patient</a>
                     <a href="{{ url_for('update_patient') }}">Update Patient</a>
                     <a href="{{ url_for('deletepat') }}">Delete Patient</a>
                     <a href="{{ url_for('search_patient') }}">Search Patients</a>
@@ -50,6 +50,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="{{ url_for('PharmacistPatientDetails') }}">Issue Medicines</a>
+                    <a href="{{ url_for('DiagnosticsPatientDetails') }}">Issue Diagnostics</a>
                 </div>
             </div>
 
