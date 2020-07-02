@@ -353,7 +353,7 @@ def billing():
                         tot = 0
                         for i in dia:
                             tot += i.tcharge
-                        return render_template('billing.html', patient = patient, delta=delta, y=y, bill = bill, med = med, dia = dia, mtot = mtot, tot = tot)
+                        return render_template('billing.html', patient = patient, dy=dy, y=y, bill = bill, med = med, dia = dia, mtot = mtot, tot = tot)
 
             
             if id == "":
