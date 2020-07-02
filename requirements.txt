@@ -1,6 +1,5 @@
 amqp==2.5.2
 appdirs==1.4.4
-asgiref==3.2.7
 astroid==2.4.2
 beautifulsoup4==4.9.1
 billiard==3.6.3.0
