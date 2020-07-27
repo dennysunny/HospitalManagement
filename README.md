@@ -7,6 +7,17 @@ A Simple Hospital Management Project build using Python Flask and SQL Alchemy
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 * [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
 
+
+## Screenshots
+
+<img src="screencapture-buerocarehospital-herokuapp-login-2020-07-27-21_34_28.png">
+<img src="screencapture-buerocarehospital-herokuapp-billing-2020-07-27-21_33_52.png">
+<img src="screencapture-buerocarehospital-herokuapp-DiagnosticsPatientDetails-2020-07-27-21_33_40.png">
+<img src="screencapture-buerocarehospital-herokuapp-PharmacistPatientDetails-2020-07-27-21_33_19.png">
+<img src="screencapture-buerocarehospital-herokuapp-addMedicine-2020-07-27-21_33_06.png">
+<img src="screencapture-buerocarehospital-herokuapp-create-patient-2020-07-27-21_32_23.png">
+<img src="screencapture-buerocarehospital-herokuapp-home-2020-07-27-21_31_56.png">
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -48,14 +59,4 @@ D:\flask\Retail-Banking>flask run
 ## hosted on heroku : http://buerocarehospital.herokuapp.com
 
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
