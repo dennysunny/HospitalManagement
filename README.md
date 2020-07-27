@@ -10,13 +10,14 @@ A Simple Hospital Management Project build using Python Flask and SQL Alchemy
 
 ## Screenshots
 
-<img src="screencapture-buerocarehospital-herokuapp-login-2020-07-27-21_34_28.png">
-<img src="screencapture-buerocarehospital-herokuapp-billing-2020-07-27-21_33_52.png">
-<img src="screencapture-buerocarehospital-herokuapp-DiagnosticsPatientDetails-2020-07-27-21_33_40.png">
-<img src="screencapture-buerocarehospital-herokuapp-PharmacistPatientDetails-2020-07-27-21_33_19.png">
-<img src="screencapture-buerocarehospital-herokuapp-addMedicine-2020-07-27-21_33_06.png">
-<img src="screencapture-buerocarehospital-herokuapp-create-patient-2020-07-27-21_32_23.png">
 <img src="screencapture-buerocarehospital-herokuapp-home-2020-07-27-21_31_56.png">
+<img src="screencapture-buerocarehospital-herokuapp-create-patient-2020-07-27-21_32_23.png">
+<img src="screencapture-buerocarehospital-herokuapp-addMedicine-2020-07-27-21_33_06.png">
+<img src="screencapture-buerocarehospital-herokuapp-PharmacistPatientDetails-2020-07-27-21_33_19.png">
+<img src="screencapture-buerocarehospital-herokuapp-DiagnosticsPatientDetails-2020-07-27-21_33_40.png">
+<img src="screencapture-buerocarehospital-herokuapp-billing-2020-07-27-21_33_52.png">
+<img src="screencapture-buerocarehospital-herokuapp-login-2020-07-27-21_34_28.png">
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
