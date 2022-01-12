@@ -25,7 +25,7 @@ MarkupSafe==1.1.1
 mccabe==0.6.1
 mysql-connector==2.2.9
 mysql-connector-python==8.0.19
-pipenv==2018.11.26
+pipenv==2022.1.8
 public==2019.4.13
 pylint==1.9.5
 PyMySQL==0.9.3
